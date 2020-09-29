@@ -1,43 +1,443 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+
+<!-- Mirrored from pixinvent.com/bootstrap-admin-template/robust/html/ltr/vertical-menu-template/color-palette-primary.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 04:16:08 GMT -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="ERP">
+    <meta name="keywords" content="ERP">
+    <title>ENCOMIENDAS</title>
+    <link rel="apple-touch-icon" href="~/www/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,400,500,700" rel="stylesheet">
+    <!-- BEGIN VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="~/www/app-assets/css/vendors.css">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN ROBUST CSS-->
+    <link rel="stylesheet" type="text/css" href="~/www/app-assets/css/app.css">
+    <!-- END ROBUST CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="~/www/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="~/www/app-assets/css/core/colors/palette-gradient.css">
+    <!-- END Page Level CSS-->
+    <!-- BEGIN Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/www/assets/css/style.css">
+
+    <!-- END Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/www/app-assets/css/plugins/loaders/loaders.min.css">
+    <style>
+        body {
+            font-size: 11px;
+            /*background: #66999 url('/www/imagen/ITB/fondos/fondo-de-pantalla.png') center center cover no-repeat fixed;*/
+            background-image: url('/www/imagen/ITB/fondos/fondo-de-pantalla3.png');
+        }
+
+
+        .color-card-header {
+            background-color: #e0c6c0;
+        }
+
+        .colorThead {
+            background-color: #e0dddd !important;
+        }
+    </style>
+    <!-- FIELD SET STYLE-->
+    <style>
+
+        fieldset.scheduler-border {
+            border: 1px groove #e0e0e0 !important;
+            padding: 0 1em 0.3em 1em !important;
+            margin: 0 0 1em 0 !important;
+            -webkit-box-shadow: 0px 0px 0px 0px #000;
+            box-shadow: 0px 0px 0px 0px #000;
+        }
+
+        legend.scheduler-border {
+            font-size: 1.2em !important;
+            font-weight: bold !important;
+            text-align: left !important;
+            width: inherit; /* Or auto */
+            padding: 0 5px; /* To give a bit of padding on the left and right */
+            border-bottom: none;
+            color: cornflowerblue;
+        }
+    </style>
+    <style>
+        .colorSubMenu {
+            background-color: #DFE6E9 !important;
+        }
+
+        #centro {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -75px;
+            margin-left: -75px;
+        }
+
+        .cCargando {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            position: fixed;
+            background-color: #000;
+            opacity: 0.8;
+            filter: alpha(opacity=80); /* Internet Explorer 8*/
+            z-index: 9999;
+            transition: width 2s;
+            -moz-transition: width 2s; /* Firefox 4 */
+            -webkit-transition: width 2s; /* Safari and Chrome */
+            -o-transition: width 2s; /* Opera */
+            cursor: progress;
+        }
+
+        .cCargandoImg {
+            cursor: progress;
+            position: absolute;
+            top: 38%;
+            right: 50%;
+            left: 50%;
+            filter: alpha(opacity=0); /* Internet Explorer 8*/
+            opacity: 1;
+            margin: auto;
+            /*width: 350px;
+            text-align: center;
+            height: 150px;*/
+            padding: 10px;
+            background-color: #000;
+            /*border: 1px solid #000;*/
+            color: #ffffff;
+            font-size: 2em;
+        }
+    </style>
+    @RenderSection("head", required: false)
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+<body id="bodyElement" class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+
+    <!-- fixed-top   <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-brand-center navbar-light navbar-shadow bg-pink bg-lighten-4"> -->
+    <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-light navbar-shadow bg-blue-grey bg-lighten-4">
+        <div class="navbar-wrapper">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                <ul class="nav navbar-nav flex-row">
+                    <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+                    <li class="nav-item">
+                        <a class="navbar-brand">
+                            <!--<img class="brand-logo" style="width: 55px; height: 45px;" alt="logo" src="~/www/imagen/ITB/logos/logoitb4.png">-->
+                            <!--<h4 class="brand-text">Telemédico</h4>-->
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
                 </ul>
             </div>
+            <div class="navbar-container content">
+                <div class="collapse navbar-collapse" id="navbar-mobile">
+                    <ul class="nav navbar-nav mr-auto float-left">
+                        <li class="nav-item d-none d-md-block"><a id="btn-toogleMenu" class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu">         </i></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav float-right">
+                        <li class="dropdown dropdown-notification nav-item">
+                            <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-default badge-danger badge-default badge-up">5</span></a>
+                            <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                                <li class="dropdown-menu-header">
+                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6><span class="notification-tag badge badge-default badge-danger float-right m-0">5 New</span>
+                                </li>
+                                <li class="scrollable-container media-list w-100">
+                                    <a href="javascript:void(0)">
+                                        <div class="media">
+                                            <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">You have new order!</h6>
+                                                <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p><small>
+                                                    <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">30 minutes ago</time>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </a><a href="javascript:void(0)">
+                                        <div class="media">
+                                            <div class="media-left align-self-center"><i class="ft-download-cloud icon-bg-circle bg-red bg-darken-1"></i></div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading red darken-1">99% Server load</h6>
+                                                <p class="notification-text font-small-3 text-muted">Aliquam tincidunt mauris eu risus.</p><small>
+                                                    <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Five hour ago</time>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </a><a href="javascript:void(0)">
+                                        <div class="media">
+                                            <div class="media-left align-self-center"><i class="ft-alert-triangle icon-bg-circle bg-yellow bg-darken-3"></i></div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading yellow darken-3">Warning notifixation</h6>
+                                                <p class="notification-text font-small-3 text-muted">Vestibulum auctor dapibus neque.</p><small>
+                                                    <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Today</time>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </a><a href="javascript:void(0)">
+                                        <div class="media">
+                                            <div class="media-left align-self-center"><i class="ft-check-circle icon-bg-circle bg-cyan"></i></div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Complete the task</h6><small>
+                                                    <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last week</time>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </a><a href="javascript:void(0)">
+                                        <div class="media">
+                                            <div class="media-left align-self-center"><i class="ft-file icon-bg-circle bg-teal"></i></div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Generate monthly report</h6><small>
+                                                    <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last month</time>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-user nav-item">
+                            <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"><span class="avatar avatar-online"><img src="~/www/app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span><span class="user-name">ADMINSIS</span></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i class="ft-user"></i> Mi Perfil</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i class="ft-power"></i> Cerrar Sesión</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+
+    <div class="main-menu menu-accordion menu-shadow menu-fixed menu-light menu-shadow " data-scroll-to-active="true">
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class="navigation-header open">
+                    <span data-i18n="nav.category.tables">PACIENTE</span>
+                    <i class="ft-more-horizontal ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Paciente"></i>
+                </li>
+                <li class="nav-item">
+                    <a class="menu-item" href="/Cita/ListaPaciente"><i class="fa fa-calendar-plus-o"></i><span class="menu-title" data-i18n="nav.page_layouts.main">MIS CITAS</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="menu-item" href="/Cita/Registro"><i class="fa fa-plus-square"></i><span class="menu-title" data-i18n="nav.page_layouts.main">RESERVAR CITA</span></a>
+                </li>
+                @*<li class="nav-item">
+                        <a class="menu-item" href="#"><i class="fa fa-flask"></i><span class="menu-title" data-i18n="nav.page_layouts.main">MIS ANÁLISIS</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="menu-item" href="#"><i class="fa fa-bed"></i><span class="menu-title" data-i18n="nav.page_layouts.main">MIS RECETAS MÉDICAS</span></a>
+                    </li>*@
+                <li class="nav-item">
+                    <a class="menu-item" href="/Paciente/HistoriaClinicaPaciente"><i class="fa fa-book"></i><span class="menu-title" data-i18n="nav.page_layouts.main">MI HISTORIA CLÍNICA</span></a>
+                </li>
+
+                <li class="navigation-header open">
+                    <span data-i18n="nav.category.tables">DOCTOR</span>
+                    <i class="ft-more-horizontal ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Doctor"></i>
+                </li>
+                <li class="nav-item">
+                    <a class="menu-item" href="/Calendario/Doctor"><i class="fa fa-calendar"></i><span class="menu-title" data-i18n="nav.page_layouts.main">MIS CITAS</span></a>
+                </li>
+                @*<li class="nav-item">
+                        <a class="menu-item" href="#"><i class="fa fa-flask"></i><span class="menu-title" data-i18n="nav.page_layouts.main">ANÁLISIS</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="menu-item" href="#"><i class="fa fa-bed"></i><span class="menu-title" data-i18n="nav.page_layouts.main">RECETAS MÉDICAS</span></a>
+                    </li>*@
+                <li class="nav-item">
+                    <a class="menu-item" href="/Paciente/Lista"><i class="ft-users"></i><span class="menu-title" data-i18n="nav.page_layouts.main">MIS PACIENTES</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="menu-item" href="/Cita/Horarios/0"><i class="fa fa-calendar-plus-o"></i><span class="menu-title" data-i18n="nav.page_layouts.main">MI HORARIO</span></a>
+                </li>
+
+
+                <li class="navigation-header open">
+                    <span data-i18n="nav.category.tables">ADMIN</span>
+                    <i class="ft-more-horizontal ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Admin"></i>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#"><i class="fa fa-cubes"></i><span class="menu-title" data-i18n="nav.page_layouts.main">MANTENEDORES</span></a>
+                    <ul class="menu-content">
+                        <li>
+                            <a class="menu-item" href="/Especialidad/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Especialidad</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/PersonalMedico/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Personal Medico</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/ServiciosMedicos/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Servicios Médicos</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/Aseguradoras/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Aseguradoras</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/Proveedor/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Proveedor</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/UnidadPresentacion/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Unidades de Presentacion</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/Marca/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Marca</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/Impuesto/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Impuesto</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/Producto/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Producto</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/IntervencionQuirurjica/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Intervención Quirúrgica</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/Analisis/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Analisis</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/Pais/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">País</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/Ciudad/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Ciudad</a>
+
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/Alergias/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Alergias</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/EnfermedadesCronicas/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Enfermedades Crónicas</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/Vacuna/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Vacunas</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                @*<li class="nav-item">
+                        <a href="#"><i class="fa fa-ambulance"></i><span class="menu-title" data-i18n="nav.page_layouts.main">FARMACIA</span></a>
+                        <ul class="menu-content">
+                            <li>
+                                <a class="menu-item" href="/Almacen/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Almacen</a>
+                            </li>
+                            <li>
+                                <a class="menu-item" href="/Compra/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Compra</a>
+
+                            </li>
+                            <li>
+                                <a class="menu-item" href="/Venta/Lista" data-i18n="nav.vertical_nav.vertical_navigation_types.vertical_menu">Venta</a>
+
+                            </li>
+                        </ul>
+                    </li>*@
+
+            </ul>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div id="divProceso" class="cCargando" style="visibility: hidden;">
+                <div id="divProcesoMsg" class="cCargandoImg">
+                    <div class="loader-wrapper">
+                        <div class="loader-container">
+                            <div class="folding-cube loader-white">
+                                <div class="cube1 cube"></div>
+                                <div class="cube2 cube"></div>
+                                <div class="cube4 cube"></div>
+                                <div class="cube3 cube"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @RenderBody()
+        </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <footer class="footer footer-static footer-light navbar-border">
+        <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright  &copy; 2020 <a class="text-bold-800 grey darken-2" href="https://ascenda.pe/" target="_blank">ITB Support </a>, All rights reserved. </span><span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">Hand-crafted & Made with <i class="ft-heart pink"></i></span></p>
+    </footer>
+
+    <script src="~/www/jsUtiles/lib/vue.js"></script>
+    <script src="~/www/jsUtiles/lib/axios.ascenda.js"></script>
+    <script src="~/www/jsUtiles/lib/sweetalert2.js"></script>
+    <script src="~/www/jsUtiles/lib/moment.js"></script>
+    <!-- BEGIN VENDOR JS-->
+    <script src="~/www/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN ROBUST JS-->
+    <script src="~/www/app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="~/www/app-assets/js/core/app.js" type="text/javascript"></script>
+    <script src="~/www/app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+    <!-- END ROBUST JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+    <script src="~/www/jsUtiles/lib/JSUtilalgl.js"></script>
+    @RenderSection("script", required: false)
+
+    <script>
+
+        window.onload = function () {
+
+            document.getElementById("btn-toogleMenu")
+                .addEventListener("click", () => {
+
+                    let toogleMenu = parseInt(localStorage.getItem("toogleMenu"));
+                    if (toogleMenu === 0) {
+                        toogleMenu = 1;
+                        localStorage.setItem("toogleMenu", toogleMenu);
+                    }
+                    else {
+                        toogleMenu = 0;
+                        localStorage.setItem("toogleMenu", toogleMenu);
+                    }
+
+                    fun_toogleMenu();
+
+                })
+
+
+            const fun_toogleMenu = () => {
+                let toogleMenu = parseInt(localStorage.getItem("toogleMenu"));
+                let body = document.getElementById("bodyElement");
+
+                if (toogleMenu === 0) {
+                    if (body.classList.contains("menu-expanded")) {
+                        body.classList.remove("menu-expanded");
+                        body.classList.add("menu-collapsed");
+                    }
+                }
+                else {
+                    if (!body.classList.contains("menu-expanded")) {
+                        body.classList.remove("menu-collapsed");
+                        body.classList.add("menu-expanded");
+                    }
+                }
+            }
+            fun_toogleMenu();
+        }
+
+
+    </script>
 </body>
+
+<!-- Mirrored from pixinvent.com/bootstrap-admin-template/robust/html/ltr/vertical-menu-template/color-palette-primary.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Oct 2018 04:16:08 GMT -->
 </html>
