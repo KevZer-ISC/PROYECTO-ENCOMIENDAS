@@ -129,6 +129,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Mantenedores\ClienteController.cs" />
+    <Compile Include="Controllers\Operaciones\RealizarEnvioController.cs" />
+    <Compile Include="Controllers\Operaciones\ReportarIngresosPorSucursalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,6 +160,8 @@
     <Content Include="www\app-assets\css\core\colors\palette-noui.css" />
     <Content Include="www\app-assets\css\core\colors\palette-switch.css" />
     <Content Include="www\app-assets\css\core\colors\palette-tooltip.css" />
+    <Content Include="www\app-assets\css\core\menu\menu-types\horizontal-top-icon-menu.css" />
+    <Content Include="www\app-assets\css\core\menu\menu-types\horizontal-top-icon-menu.min.css" />
     <Content Include="www\app-assets\css\core\menu\menu-types\vertical-menu.css" />
     <Content Include="www\app-assets\css\pages\card-charts.css" />
     <Content Include="www\app-assets\css\pages\chat-application.css" />
@@ -1486,12 +1490,13 @@
     <Content Include="www\documentos\Operaciones\Transporte\Cotizacion2020-05-12-10-35-52.pdf" />
     <Content Include="Views\Mantenedores\Cliente\ClienteMantenedor.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Mantenedores\Cliente\ClienteListar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Cliente\" />
-    <Folder Include="Views\Envio\" />
+    <Folder Include="Views\Operaciones\" />
+    <Folder Include="Views\ReportarIngresosPorSucursal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

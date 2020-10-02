@@ -11,10 +11,17 @@ namespace Capa1.Presentacion.Controllers.Mantenedores
     public class ClienteController : Controller
     {
         [Route("Registro")]
-        public ActionResult Doctor()
+        public ActionResult Registro()
         {
             ViewBag.id = 0;
             return View("~/Views/Mantenedores/Cliente/ClienteMantenedor.cshtml");
+        }
+
+        [Route("Listar")]
+        public ActionResult Listar()
+        {
+            ViewBag.id = 0;
+            return View("~/Views/Mantenedores/Cliente/ClienteListar.cshtml");
         }
     }
 }
