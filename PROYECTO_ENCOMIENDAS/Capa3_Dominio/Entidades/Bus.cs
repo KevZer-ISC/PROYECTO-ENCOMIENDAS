@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Capa3_Dominio.Entidades
 {
-    class Bus
+    public class Bus
     {
+        public float Capacidad { get; set; }
+        public string Chofer { get; set; }
+        public Boolean EstadoDeBus { get; set; }
+        public int IdBus { get; set; }
+        public string Placa { get; set; }
+
+
+
+
+
     }
 }

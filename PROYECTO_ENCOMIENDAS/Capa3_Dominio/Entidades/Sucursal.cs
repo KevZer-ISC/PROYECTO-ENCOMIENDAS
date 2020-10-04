@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Capa3_Dominio.Entidades
 {
-    class Sucursal
+   public class Sucursal
     {
+        public string Ciudad { get; set; }
+        public Boolean Disponibilidad { get; set; }
+        public int IdSucursal { get; set; }
+
+
+
     }
 }

@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Capa3_Dominio.Entidades
 {
-    class Paquete
+   public class Paquete
     {
+        public Boolean Categoria { get; set; }
+        public string Descripcion { get; set; }
+        public int IdPaquete { get; set; }
+        public float Peso { get; set; }
+        public List<Paquete> ListaPaquetes { get; }
+
+
+
+
     }
 }
