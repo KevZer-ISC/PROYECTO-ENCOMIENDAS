@@ -1,0 +1,207 @@
+﻿
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section head{
+    <link rel="stylesheet" type="text/css" href="~/www/app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/www/app-assets/vendors/css/forms/toggle/bootstrap-switch.min.css">
+    <link rel="stylesheet" type="text/css" href="~/www/app-assets/css/plugins/forms/switch.min.css">
+    <style>
+        fieldset.scheduler-border {
+            border: 1px groove #e0e0e0 !important;
+            padding: 0 1em 0.3em 1em !important;
+            margin: 0 0 1em 0 !important;
+            -webkit-box-shadow: 0px 0px 0px 0px #000;
+            box-shadow: 0px 0px 0px 0px #000;
+        }
+
+        legend.scheduler-border {
+            font-size: 1.2em !important;
+            font-weight: bold !important;
+            text-align: left !important;
+            width: inherit; /* Or auto */
+            padding: 0 5px; /* To give a bit of padding on the left and right */
+            border-bottom: none;
+            color: #55595c;
+        }
+
+        .vue-checkbox a {
+            border-color: #e0dede;
+        }
+    </style>
+}
+
+<div id="app">
+    <input value="@ViewBag.id" type="hidden" id="PacienteId" />
+    <div class="content-header row">
+        <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+            <h3 class="content-header-title mb-0 d-inline-block">Home</h3>
+            <div class="row breadcrumbs-top d-inline-block">
+                <div class="breadcrumb-wrapper col-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            Home
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        @*<div class="content-header-right col-md-4 col-12">
+            <div class="btn-group float-md-right">
+                <button class="btn btn-blue btn-min-width mr-1" v-on:click="verPaciente()"><i class="fa fa-user"></i> Ver Paciente</button>
+                <a type="button" class="btn btn-success btn-min-width mr-1" href="/Paciente/Lista"><i class="fa fa-list-alt"></i> Ir a Listado</a>
+            </div>
+        </div>*@
+    </div>
+    <div class="content-body">
+        <!-- Basic form layout section start -->
+        <section id="basic-form-layouts">
+            <div class="row match-height">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title" id="basic-layout-form"></h4>
+                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                    @*<li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>*@
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    @*<li><a data-action="close"><i class="ft-x"></i></a></li>*@
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <img src="~/www/imagen/Encomienda/Logooo.PNG" width="350" height="270" />
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                                <div class="row">
+                                                    <div class="col-md-3 ml-xl-5">
+                                                        <div class="form-group">
+                                                            <h4 class="card-title">REGISTRO DE CLIENTE</h4>
+                                                            @*<label><b>REGISTRO DE CLIENTE</b></label><br />*@
+                                                            <a href="#" class="btn  mr-0 mb-5 btn-openid w-75 btn-lg "><span class="fa fa-user-plus font-large-4 mt-0"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3 ml-xl-5">
+                                                        <div class="form-group col-12">
+                                                            <h4 class="card-title">LISTA DE CLIENTES</h4>
+                                                            @*<label><b>LISTA DE CLIENTES</b></label><br />*@
+                                                            <a href="#" class="btn  mr-0 mb-5 btn-openid w-75 btn-lg"><span class="fa fa-list-alt font-large-4 mt-0"></span></a>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                                @*<div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label><b>SEGURO MÉDICO PRIVADO</b></label><br />
+                                                            <label v-text="Paciente.Imagen"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label><b>ESTADO CIVIL</b></label><br />
+                                                            <label v-text="Paciente.Imagen"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label><b>SEXO</b></label><br />
+                                                            <label v-text="Paciente.Imagen"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label><b>FECHA DE NACIMIENTO</b></label><br />
+                                                            <label v-text="Paciente.Imagen"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>*@
+                                                
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- // Basic form layout section end -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade text-left" id="modalAntecendentePersonal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel19">Antecedente Personal</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="projectinput1">Tipo de Antecedente (*)</label>
+                                <select class="form-control" v-model="AntecedentePersonal.TipoAntecedenteID">
+                                    <option value="1">TIPO 1</option>
+                                    <option value="2">TIPO 2</option>
+                                    @*<option v-for="li in comboCargo" v-text="li.Nombre" :value="li.CargoID"></option>*@
+                                </select>
+                                @*<small v-if="ifCargo" class="text-danger"> Complete este campo. </small>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="projectinput1">Antecedente Personal (*)</label>
+                                <textarea class="form-control" v-model="AntecedentePersonal.Descripcion"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-blue" v-on:click="guardarAntecedentePersonal()">Guardar</button>
+                    <button type="button" class="btn grey btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+@section script{
+    <script src="~/www/app-assets/vendors/js/tables/datatable/datatables.min.js" type="text/javascript"></script>
+    <script src="~/www/app-assets/js/scripts/tables/datatables/datatable-basic.js" type="text/javascript"></script>
+
+
+    <script src="~/www/app-assets/vendors/js/forms/toggle/bootstrap-switch.min.js"></script>
+    <script src="~/www/app-assets/vendors/js/forms/toggle/bootstrap-checkbox.min.js"></script>
+    <script src="~/ViewsJS/PERSONAS/Paciente/jsHistoriaClinicaMantenedor.js"></script>
+    <script src="~/www/app-assets/js/scripts/forms/switch.js"></script>
+
+}
+
+
