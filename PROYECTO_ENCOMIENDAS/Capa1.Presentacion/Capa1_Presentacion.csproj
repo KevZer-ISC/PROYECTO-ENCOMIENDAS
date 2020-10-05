@@ -146,6 +146,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="recursos\fa249c54-0c57-44f6-83c6-019c8eeb3785.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="vueComponet\vueCheckBox.js" />
@@ -1495,12 +1496,13 @@
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Mantenedores\Cliente\ClienteListar.cshtml" />
     <Content Include="Views\Inicio\Dashboard.cshtml" />
+    <Content Include="Views\Cliente\Registro.cshtml" />
+    <Content Include="Views\ReportarIngresosPorSucursal\ReportarIngresoPorSucursal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Operaciones\" />
-    <Folder Include="Views\ReportarIngresosPorSucursal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
